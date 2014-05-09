@@ -47,10 +47,11 @@ module Proceso
     end
 
     def capture_process_usage(env)
+      request = Rack::Request.new(env)
       mem_1, cpu_1, resp_1 = build_process_payload
       response = yield
       mem_2, cpu_2, resp_2 = build_process_payload
-      process_payload = calculate_process_times(env, mem_1, mem_2, cpu_1, cpu_2, resp_1, resp_2)
+      process_payload = calculate_process_usage(request, mem_1, mem_2, cpu_1, cpu_2, resp_1, resp_2)
       notifier.instrument(SUBSCRIPTION, process_payload)
       response
     end
@@ -62,11 +63,10 @@ module Proceso
       [mem, cpu, resp]
     end
 
-    def calculate_process_times(env, m1, m2, c1, c2, r1, r2)
+    def calculate_process_usage(req, m1, m2, c1, c2, r1, r2)
       mem_used  = m2 - m1
       cpu_used  = c2 - c2
       resp_time = r2 - r1
-      req       = Rack::Request.new(env)
       {
         pid:       process.pid,
         mem_used:  mem_used,
