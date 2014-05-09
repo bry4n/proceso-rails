@@ -1,3 +1,4 @@
+require 'proceso/version'
 require 'rack'
 
 module Proceso
@@ -23,7 +24,7 @@ module Proceso
       end
 
       def logger
-        @@logger ||= begin
+        @logger ||= begin
           Rails.configuration.logger || ActiveSupport::Logger.new(STDOUT)
         end
       end
@@ -48,10 +49,10 @@ module Proceso
 
     def capture_process_usage(env)
       request = Rack::Request.new(env)
-      mem_1, cpu_1, resp_1 = build_process_payload
+      mem_1, cpu_1 = build_process_payload
       response = yield
-      mem_2, cpu_2, resp_2 = build_process_payload
-      process_payload = calculate_process_usage(request, mem_1, mem_2, cpu_1, cpu_2, resp_1, resp_2)
+      mem_2, cpu_2 = build_process_payload
+      process_payload = calculate_process_usage(request, mem_1, mem_2, cpu_1, cpu_2)
       notifier.instrument(SUBSCRIPTION, process_payload)
       response
     end
@@ -59,19 +60,16 @@ module Proceso
     def build_process_payload
       mem   = process.mem_size
       cpu   = process.user_cpu_times
-      resp  = Time.now.to_i
-      [mem, cpu, resp]
+      [mem, cpu]
     end
 
-    def calculate_process_usage(req, m1, m2, c1, c2, r1, r2)
+    def calculate_process_usage(req, m1, m2, c1, c2)
       mem_used  = m2 - m1
       cpu_used  = c2 - c2
-      resp_time = r2 - r1
       {
         pid:       process.pid,
         mem_used:  mem_used,
         cpu_used:  cpu_used,
-        resp_time: resp_time,
         request:   req
       }
     end
