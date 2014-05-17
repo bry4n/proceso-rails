@@ -14,8 +14,7 @@ module Proceso
           mem_used    = (payload[:mem_used].to_f / 1024.0).round(1)
           cpu_used    = payload[:cpu_used].to_f.round(1)
           path        = payload[:request].path_info
-          resp_time   = payload[:resp_time]
-          logger.debug "[PROCESO] MEM: #{mem_used}KB\tCPU: #{cpu_used}\tRESP: #{resp_time}ms\tPATH: #{path}"
+          logger.debug "[PROCESO] MEM: #{mem_used}KB\tCPU: #{cpu_used}\tPATH: #{path}"
         end
       end
 

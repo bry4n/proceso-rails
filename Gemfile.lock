@@ -1,14 +1,14 @@
 PATH
   remote: .
   specs:
-    proceso-rails (0.2.1)
+    proceso-rails (0.2.3)
       proceso (~> 0.2, >= 0.2.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.2.5)
-    proceso (0.2.1)
+    proceso (0.2.2)
     rake (10.3.1)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
