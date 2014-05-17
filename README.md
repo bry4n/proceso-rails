@@ -19,11 +19,6 @@ gem 'proceso-rails', group: :development
 $ rails server
 ```
 
-### TODO
-
-* Rack middlware support
-* Configurable settings
-
 ### Contributing
 
 If you would like to contribute, please:
