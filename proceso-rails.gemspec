@@ -5,7 +5,7 @@ require 'proceso/version'
 
 Gem::Specification.new do |spec|
   spec.name         = "proceso-rails"
-  spec.version      = Proceso::Rails::VERSION
+  spec.version      = Proceso::VERSION
   spec.authors      = ["Bryan Goines"]
   spec.email        = ["bryann83@gmail.com"]
   spec.description  = %q{Proceso Middleware for Rails}

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    proceso-rails (0.2.3)
+    proceso-rails (0.2.4)
       proceso (~> 0.2, >= 0.2.0)
 
 GEM

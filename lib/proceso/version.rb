@@ -1,5 +1,3 @@
 module Proceso
-  module Rails
-    VERSION = '0.2.3'
-  end
+  VERSION = '0.2.4'
 end
