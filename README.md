@@ -1,7 +1,17 @@
 Proceso Middleware
 ---
 
-A Rails middleware to show the memory and cpu usage per HTTP request.
+A Rails middleware to print the memory and cpu usage per HTTP request.
+
+```
+Started GET "/" for 127.0.0.1 at 2014-05-18 02:31:23 -0500
+Processing by HomeController#index as HTML
+  User Load (0.4ms)  SELECT  "users".* FROM "users"  WHERE "users"."remember_token" IS NULL  ORDER BY "users"."id" ASC LIMIT
+  ...
+  Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.5ms)
+[PROCESO] MEM: 12.0KB   CPU: 0.0        PATH: /
+```
+
 
 See [Proceso](bry4n/proceso) for details.
 
