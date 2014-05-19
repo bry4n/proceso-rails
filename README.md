@@ -1,7 +1,7 @@
 Proceso Middleware
 ---
 
-A Rails middleware to print the memory and cpu usage per HTTP request.
+A Rails middleware to print the memory and cpu usage after processing a web request.
 
 ```
 Started GET "/" for 127.0.0.1 at 2014-05-18 02:31:23 -0500
@@ -13,7 +13,7 @@ Processing by HomeController#index as HTML
 ```
 
 
-See [Proceso](bry4n/proceso) for details.
+See [Proceso](https://github.com/bry4n/proceso) for details.
 
 ### Setup
 
@@ -23,7 +23,7 @@ See [Proceso](bry4n/proceso) for details.
 gem 'proceso-rails', group: :development
 ```
 
-2) Then start rails server!
+2) Then start rails server in development mode!
 
 ```bash
 $ rails server
