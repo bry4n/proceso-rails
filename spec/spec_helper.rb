@@ -12,16 +12,17 @@ RSpec.configure do |config|
 end
 
 class TestLogger
+
+  attr_reader :outputs
   def initialize
-    @lines = []
+    @outputs = []
   end
+  
   def info(text)
-    @lines << text
+    @outputs << text
   end
   alias :debug :info
-  def outputs
-    @lines
-  end
+
 end
 
 class TestApp < Rails::Application
