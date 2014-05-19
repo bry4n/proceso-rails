@@ -1,5 +1,6 @@
 Proceso Middleware
 ---
+[![Build Status](https://travis-ci.org/bry4n/proceso-rails.svg?branch=master)](https://travis-ci.org/bry4n/proceso-rails)
 
 A Rails middleware to print the memory and cpu usage after processing a web request.
 
