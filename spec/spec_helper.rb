@@ -14,6 +14,7 @@ end
 class TestLogger
 
   attr_reader :outputs
+
   def initialize
     @outputs = []
   end
@@ -33,8 +34,7 @@ class TestApp < Rails::Application
 
   config.logger = TestLogger.new
   Rails.logger  = config.logger
-  config.proceso.environments = [:test]
-  Rails.env = 'test'
+  
   routes.draw do
     root to: "test#index"
   end
